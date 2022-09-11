@@ -1,0 +1,35 @@
+ext.versions = [
+        targetSdkVersion: 32,
+        minSdkVersion   : 21,
+        javaVersion     : JavaVersion.VERSION_1_8,
+]
+
+subprojects {
+    afterEvaluate { project ->
+        if (project.hasProperty('android')) {
+            android {
+                compileSdkVersion versions.targetSdkVersion
+
+                defaultConfig {
+                    minSdkVersion versions.minSdkVersion
+                    targetSdkVersion versions.targetSdkVersion
+                }
+
+                compileOptions {
+                    sourceCompatibility versions.javaVersion
+                    targetCompatibility versions.javaVersion
+                }
+
+                kotlinOptions {
+                    jvmTarget = '1.8'
+                }
+
+                buildFeatures.viewBinding true
+            }
+
+            dependencies {
+                implementation global.kotlinCoreKtx
+            }
+        }
+    }
+}
