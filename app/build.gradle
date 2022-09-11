@@ -23,9 +23,11 @@ android {
 }
 
 dependencies {
-    implementation project(path: submodulesFeatures.initial)
+    implementation project(path: submodulesFeatures.cityList)
     implementation project(path: submodulesLibraries.theme)
 
     implementation global.hiltAndroid
     kapt global.hiltCompiler
+    implementation global.navigationUi
+    implementation global.navigationFragment
 }

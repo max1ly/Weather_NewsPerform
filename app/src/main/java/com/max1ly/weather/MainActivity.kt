@@ -1,8 +1,8 @@
-package com.max1ly.weather.features.initial
+package com.max1ly.weather
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.max1ly.weather.features.initial.databinding.ActivityMainBinding
+import com.max1ly.weather.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

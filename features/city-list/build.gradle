@@ -10,4 +10,6 @@ dependencies {
 
     implementation global.hiltAndroid
     kapt global.hiltCompiler
+    implementation global.navigationUi
+    implementation global.navigationFragment
 }

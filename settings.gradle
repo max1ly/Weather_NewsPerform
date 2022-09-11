@@ -17,5 +17,4 @@ include ':app', ':data', ':domain'
 
 include ':libraries:library-theme'
 
-include ':features:initial'
 include ':features:city-list'
