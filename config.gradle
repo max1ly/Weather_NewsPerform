@@ -1,6 +1,6 @@
 ext.versions = [
         targetSdkVersion: 32,
-        minSdkVersion   : 21,
+        minSdkVersion   : 23,
         javaVersion     : JavaVersion.VERSION_1_8,
 ]
 

@@ -1,3 +1,12 @@
 plugins {
     id 'kotlin'
 }
+
+dependencies {
+    implementation project(path: submodulesPlatform.domain)
+
+    api global.kotlinCoroutinesCore
+    api global.kotlinCoroutinesAndroid
+    api global.retrofit
+    api global.gson
+}

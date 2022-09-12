@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.max1ly.weather.domain.model.City
+import com.max1ly.weather.domain.model.CityWeather
 import com.max1ly.weather.features.cities.databinding.ItemCityWeatherBinding
 
-class CitiesAdapter : ListAdapter<City, CitiesAdapter.CityViewHolder>(CITY_DIFF_CALLBACK) {
+class CitiesAdapter : ListAdapter<CityWeather, CitiesAdapter.CityViewHolder>(CITY_DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CityViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -23,12 +23,12 @@ class CitiesAdapter : ListAdapter<City, CitiesAdapter.CityViewHolder>(CITY_DIFF_
     inner class CityViewHolder(
         private val binding: ItemCityWeatherBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(city: City) {
+        fun bind(cityWeather: CityWeather) {
             with(binding) {
-                cityName.text = city.name
+                cityName.text = cityWeather.name
                 val unknown = binding.root.resources.getString(R.string.unknown)
-                cityWeather.text = city.weather ?: unknown
-                cityTemperature.text = city.temperature?.let {
+                this.cityWeather.text = cityWeather.weather ?: unknown
+                cityTemperature.text = cityWeather.temperature?.let {
                     binding.root.resources.getString(R.string.temperature, it)
                 } ?: unknown
             }
@@ -36,12 +36,12 @@ class CitiesAdapter : ListAdapter<City, CitiesAdapter.CityViewHolder>(CITY_DIFF_
     }
 
     companion object {
-        private val CITY_DIFF_CALLBACK = object : DiffUtil.ItemCallback<City>() {
-            override fun areItemsTheSame(oldItem: City, newItem: City): Boolean {
+        private val CITY_DIFF_CALLBACK = object : DiffUtil.ItemCallback<CityWeather>() {
+            override fun areItemsTheSame(oldItem: CityWeather, newItem: CityWeather): Boolean {
                 return oldItem.name == newItem.name
             }
 
-            override fun areContentsTheSame(oldItem: City, newItem: City): Boolean {
+            override fun areContentsTheSame(oldItem: CityWeather, newItem: CityWeather): Boolean {
                 return oldItem == newItem
             }
         }

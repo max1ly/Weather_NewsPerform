@@ -1,7 +1,8 @@
 package com.max1ly.weather.domain.model
 
-data class City(
+data class CityWeather(
+    val id: String,
     val name: String,
     val weather: String?,
-    val temperature: Int?,
+    val temperature: String?,
 )
