@@ -1,7 +1,6 @@
 package com.max1ly.weather.features.cities
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class CityListFragment : Fragment() {
 
     private var binding: CityListFragmentBinding? = null
+    private var citiesAdapter: CitiesAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,10 +25,16 @@ class CityListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        citiesAdapter = CitiesAdapter()
+        binding?.apply {
+            cityList.adapter = citiesAdapter
+        }
+        // citiesAdapter?.submitList()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         binding = null
+        citiesAdapter = null
     }
 }

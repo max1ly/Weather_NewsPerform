@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="city_title_size">26sp</dimen>
+    <dimen name="city_weather_size">20sp</dimen>
+    <dimen name="city_temperature_size">32sp</dimen>
+</resources>
